@@ -1,0 +1,34 @@
+.mesmo-tamanho {
+    width: 150px;
+    white-space: normal;
+}
+.chkbutton-size {
+    width: 45px;
+    white-space: normal;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+h2 {
+    position: relative;
+    font-family: 'revicons';
+    top: 100px;
+}
+.tdb {
+    box-align: left;
+    white-space: normal;
+    width: 15%;
+
+}
+.panel{
+    position: relative;
+    top: 140px;
+}
+
+.form-submit{
+    position: relative;
+    top: 155px;
+    left: 12px;
+}
