@@ -1,6 +1,6 @@
 <?php 
-include_once ('config.php');
-include_once ('functions.php');
+include_once ("config.php");
+include ("functions.php");
 $agendar =  isset($_REQUEST['action']);
 
 
@@ -49,9 +49,7 @@ $agendar =  isset($_REQUEST['action']);
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
   <div class="container-fluid">
-    <h2><?php
-$dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-var_dump($dados); ?></h2>
+    <h2><?php  ?></h2>
 
 </div>
 </div>
