@@ -1,17 +1,19 @@
 <html>
-    <head></head>
+    <head>
+        
+    </head>
         <body>
-           
+        <?php ?>
     <div class="col-md-4">
         <div class="panel panel-default">
             
     <table class="table-condensed">
         <tr data-bs-toggle="collapse" data-bs-target="#segundafeira" class="accordion-toggle">
-            <td><button type="button" class="btn btn-dark mesmo-tamanho">Segunda - Feira</button></td>
+            <td><button type="button" name="segundafeira" value="1" class="btn btn-dark mesmo-tamanho">Segunda - Feira</button></td>
         </tr>        
         <td class="tdb">
             <div class="accordian-body collapse" id="segundafeira">
-                <form name="reservar" method="POST" action="" id="send">
+                <form name="reservar" method="POST" action="" value="1">
                     <input type="radio" name="day1" class="btn-check" id="segbtn1" value="1" autocomplete="off">
                     <label class="btn btn-outline-primary chkbutton-size" for="segbtn1">1</label>
                     <input type="radio" name="day1" class="btn-check" id="segbtn2" value="2" autocomplete="off">
@@ -663,7 +665,7 @@
         </div>
     </div>
     <div class="form-submit container-fluid">
-        <input type="submit" name="reservarmesa" id="send" class="btn btn-primary">
+        <input type="submit" name="reservarmesa" class="btn btn-primary">
     </div>
 </form>
         </body>

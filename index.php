@@ -1,13 +1,5 @@
-<?php 
-include_once ("config.php");
-include ("functions.php");
-$agendar =  isset($_REQUEST['action']);
-
-
-?>
 <!doctype html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,9 +10,8 @@ $agendar =  isset($_REQUEST['action']);
   <!--Core CSS-->
   <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
 </head>
-<?php update_reservation() ?>
 <body>
-  <nav class="navbar bg-light fixed-top border">
+ <!-- <nav class="navbar bg-light fixed-top border">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="assets/img/logotipo.png" alt="" width="239" height="37" class="d-inline-block align-text-top">
@@ -42,19 +33,25 @@ $agendar =  isset($_REQUEST['action']);
           </div>
         </div>
     </div>
-  </nav>
+  </nav> -->
   <!--Core Javascript-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
   <div class="container-fluid">
-    <h2><?php  ?></h2>
+    <h2>
+      <?php 
+      $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+      var_dump($dados);?></h2>
 
 </div>
 </div>
 <?php
-include("assets/html/htmlb.html");
+include_once ("config.php");
+include ("functions.php");
+include("assets/html/htmlb.php");
+
 ?>
 
   <!-- Modal -->
