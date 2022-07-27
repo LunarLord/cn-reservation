@@ -1,3 +1,4 @@
+<?php exec('wmic COMPUTERSYSTEM Get UserName', $user);?>
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -11,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
 </head>
 <body>
- <!-- <nav class="navbar bg-light fixed-top border">
+ < <nav class="navbar bg-light fixed-top border">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="assets/img/logotipo.png" alt="" width="239" height="37" class="d-inline-block align-text-top">
@@ -20,6 +21,9 @@
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><?php print_r($user[1]) ?></a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Início</a>
               </li>
@@ -33,25 +37,23 @@
           </div>
         </div>
     </div>
-  </nav> -->
+  </nav>
   <!--Core Javascript-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
   <div class="container-fluid">
-    <h2>
-      <?php 
-      $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-      var_dump($dados);?></h2>
+    <h2>Reserve sua mesa</h2>
 
 </div>
 </div>
 <?php
-include_once ("config.php");
+//session_start();
+include_once("config.php");
 include ("functions.php");
 include("assets/html/htmlb.php");
-
+update_reservation();
 ?>
 
   <!-- Modal -->
@@ -67,7 +69,6 @@ include("assets/html/htmlb.php");
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          
         </div>
         
       </div>
