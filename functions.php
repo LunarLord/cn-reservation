@@ -12,11 +12,52 @@
   }
 }*/
 
-function restrito(){
-  session_start();
-  if (!isset($_SESSION['name'])) header("Location: login.php");
-    exit;
+function day1(){
+  require("config.php");
+  $query = $dbconn->query("SELECT `user`,`day` FROM mesas WHERE `user` = '$_SESSION[name]' AND `day` = '1'");
+  while ($result=mysqli_fetch_object($query)){
+  if($result != null){
+    echo 'disabled'  ;
+  }}
+  
 }
+function day2(){
+  require("config.php");
+  $query = $dbconn->query("SELECT `user`,`day` FROM mesas WHERE `user` = '$_SESSION[name]' AND `day` = '2'");
+  while ($result=mysqli_fetch_object($query)){
+  if($result != null){
+    echo 'disabled'  ;
+  }}
+  
+}
+function day3(){
+  require("config.php");
+  $query = $dbconn->query("SELECT `user`,`day` FROM mesas WHERE `user` = '$_SESSION[name]' AND `day` = '3'");
+  while ($result=mysqli_fetch_object($query)){
+  if($result != null){
+    echo 'disabled'  ;
+  }}
+  
+}
+function day4(){
+  require("config.php");
+  $query = $dbconn->query("SELECT `user`,`day` FROM mesas WHERE `user` = '$_SESSION[name]' AND `day` = '4'");
+  while ($result=mysqli_fetch_object($query)){
+  if($result != null){
+    echo 'disabled'  ;
+  }}
+  
+}
+function day5(){
+  require("config.php");
+  $query = $dbconn->query("SELECT `user`,`day` FROM mesas WHERE `user` = '$_SESSION[name]' AND `day` = '5'");
+  while ($result=mysqli_fetch_object($query)){
+  if($result != null){
+    echo 'disabled'  ;
+  }}
+  
+}
+
 function update_reservation(){
 exec('wmic COMPUTERSYSTEM Get domain', $domain);
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);

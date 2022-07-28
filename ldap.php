@@ -3,7 +3,7 @@
     $ldap_dn = $_POST["Usuario"]."@".$domain[1];
 	$ldap_password = $_POST["Senha"];
 	
-	$ldap_con = ldap_connect("172.16.0.11", 389);
+	$ldap_con = ldap_connect("172.16.16.92", 389);
 	ldap_set_option($ldap_con, LDAP_OPT_PROTOCOL_VERSION, 3);
 
 	if(@ldap_bind($ldap_con,$ldap_dn,$ldap_password)){

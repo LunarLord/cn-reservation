@@ -45,3 +45,6 @@ h2 {
     top: 100px;
     width: 10px;
 }
+.disabled{
+    background-color: red;
+}

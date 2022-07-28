@@ -65,8 +65,6 @@ include_once("functions.php");
 include("assets/html/htmlb.php");
 update_reservation();
 ?>
-
-  <!-- Modal -->
 </body>
 
 </html>
