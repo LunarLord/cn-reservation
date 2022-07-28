@@ -3,15 +3,18 @@
         
     </head>
         <body>
+            <?php 
+            include_once("config.php");
+            include_once("functions.php"); ?>
     <div class="col-md-4">
         <div class="panel panel-default">
     <table class="table-condensed">
         <tr data-bs-toggle="collapse" data-bs-target="#segundafeira" class="accordion-toggle">
-            <td><button type="button" disabled name="segundafeira" value="1" class="btn btn-dark mesmo-tamanho">Segunda - Feira</button></td>
+            <td><button type="button" name="segundafeira" value="1" class="btn btn-dark mesmo-tamanho">Segunda - Feira</button></td>
         </tr>        
         <td class="tdb">
             <div class="accordian-body collapse" id="segundafeira">
-                <form name="reservar" method="POST" action="index.php" value="1">
+                <form name="reservar" method="POST" action="/teste.php" value="1">
                     <input type="radio" <?php b1($dbBd, $dbconn, $dbHost, $dbPass, $dbUser) ?> name="day1" <?php day1($dbBd, $dbconn, $dbHost, $dbPass, $dbUser) ?> class="btn-check" id="segbtn1" value="1" autocomplete="off">
                     <label class="btn btn-outline-primary chkbutton-size" for="segbtn1">1</label>
                     <input type="radio" <?php b2($dbBd, $dbconn, $dbHost, $dbPass, $dbUser) ?> name="day1" <?php day1($dbBd, $dbconn, $dbHost, $dbPass, $dbUser) ?> class="btn-check" id="segbtn2" value="2" autocomplete="off">
@@ -678,7 +681,7 @@
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-          <button type="submit" class="btn btn-primary" action="index.php">Confirmar</button>
+          <button type="submit" class="btn btn-primary">Confirmar</button>
         </div>
         </form>
       </div>

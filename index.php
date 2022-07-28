@@ -59,11 +59,9 @@ $logado = $_SESSION['name'];
 </div>
 </div>
 <?php
-//session_start();
 include_once("config.php");
 include_once("functions.php");
 include("assets/html/htmlb.php");
-update_reservation();
 ?>
 </body>
 
