@@ -14,7 +14,7 @@
         </tr>        
         <td class="tdb">
             <div class="accordian-body collapse" id="segundafeira">
-                <form name="reservar" method="POST" action="/teste.php" value="1">
+                <form name="reservar" method="POST" action="/reserva.php" value="1">
                     <input type="radio" <?php b1($dbBd, $dbconn, $dbHost, $dbPass, $dbUser) ?> name="day1" <?php day1($dbBd, $dbconn, $dbHost, $dbPass, $dbUser) ?> class="btn-check" id="segbtn1" value="1" autocomplete="off">
                     <label class="btn btn-outline-primary chkbutton-size" for="segbtn1">1</label>
                     <input type="radio" <?php b2($dbBd, $dbconn, $dbHost, $dbPass, $dbUser) ?> name="day1" <?php day1($dbBd, $dbconn, $dbHost, $dbPass, $dbUser) ?> class="btn-check" id="segbtn2" value="2" autocomplete="off">
