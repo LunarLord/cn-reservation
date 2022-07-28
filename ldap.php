@@ -1,43 +1,21 @@
 <?php 
+	exec('wmic COMPUTERSYSTEM Get domain', $domain);
+    $ldap_dn = $_POST["Usuario"]."@".$domain[1];
+	$ldap_password = $_POST["Senha"];
+	
+	$ldap_con = ldap_connect("172.16.0.11", 389);
+	ldap_set_option($ldap_con, LDAP_OPT_PROTOCOL_VERSION, 3);
 
-/*********************************************
-Função de validação no AD via protocolo LDAP
-como usar:
-valida_ldap("servidor", "domíniousuário", "senha");
-
-*********************************************/
-
-function valida_ldap($srv, $usr, $pwd){
-$ldap_server = $srv;
-$auth_user = $usr;
-$auth_pass = $pwd;
-
-// Tenta se conectar com o servidor
-if (!($connect = @ldap_connect($ldap_server))) {
-return FALSE;
-}
-
-// Tenta autenticar no servidor
-if (!($bind = @ldap_bind($connect, $auth_user, $auth_pass))) {
-// se não validar retorna false
-return FALSE;
-} else {
-// se validar retorna true
-return TRUE;
-}
-
-}
-
-// EXEMPLO do uso dessa função
-$server = "172.16.0.11"; //IP ou nome do servidor
-$dominio = "@quality.corporate"; //Dominio Ex: @gmail.com
-$user = "qtgpd".$dominio;
-$pass = "Heavy7952789*";
-
-if (valida_ldap($server, $user, $pass)) {
-echo "usuário autenticado<br-->";
-} else {
-echo "usuário ou senha inválida";
-}
-
-?>
+	if(@ldap_bind($ldap_con,$ldap_dn,$ldap_password)){
+		echo "Authenticated as: ";
+        print_r($ldap_dn);
+        echo "<br> redirecting... ";
+        session_start();
+        $_SESSION['name'] = $_POST['Usuario'];  
+        $_SESSION['password'] = $_POST['Senha'];
+        header("Refresh: 2; url = index.php");
+    }else{
+        unset ($_SESSION['name']);
+        unset ($_SESSION['password']);
+        header('location: login.php');;
+    }

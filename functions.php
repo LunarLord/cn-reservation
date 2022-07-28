@@ -11,29 +11,34 @@
     echo "ok";
   }
 }*/
+
+function restrito(){
+  session_start();
+  if (!isset($_SESSION['name'])) header("Location: login.php");
+    exit;
+}
 function update_reservation(){
-  exec('wmic COMPUTERSYSTEM Get domain', $domain);
-  exec('wmic COMPUTERSYSTEM Get UserName', $user);
+exec('wmic COMPUTERSYSTEM Get domain', $domain);
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 require("config.php");
 if(!empty($dados['day1'])) {
-  $query_update = "UPDATE `mesas` SET `user` = '$user[1]', `domain` = '$domain[1]' WHERE `mesas`.`position` = '$dados[day1]' AND `mesas`.`day` = '1'";
+  $query_update = "UPDATE `mesas` SET `user` = '$_SESSION[name]', `domain` = '$domain[1]' WHERE `mesas`.`position` = '$dados[day1]' AND `mesas`.`day` = '1'";
   $dbconn->query($query_update);
 }
 if(!empty($dados['day2'])) {
-  $query_update = "UPDATE `mesas` SET `user` = '$user[1]', `domain` = '$domain[1]' WHERE `mesas`.`position` = '$dados[day2]' AND `mesas`.`day` = '2'";
+  $query_update = "UPDATE `mesas` SET `user` = '$_SESSION[name]', `domain` = '$domain[1]' WHERE `mesas`.`position` = '$dados[day2]' AND `mesas`.`day` = '2'";
   $dbconn->query($query_update);
 }
 if(!empty($dados['day3'])) {
-  $query_update = "UPDATE `mesas` SET `user` = '$user[1]', `domain` = '$domain[1]' WHERE `mesas`.`position` = '$dados[day3]' AND `mesas`.`day` = '3'";
+  $query_update = "UPDATE `mesas` SET `user` = '$_SESSION[name]', `domain` = '$domain[1]' WHERE `mesas`.`position` = '$dados[day3]' AND `mesas`.`day` = '3'";
   $dbconn->query($query_update);
 }
 if(!empty($dados['day4'])) {
-  $query_update = "UPDATE `mesas` SET `user` = '$user[1]', `domain` = '$domain[1]' WHERE `mesas`.`position` = '$dados[day4]' AND `mesas`.`day` = '4'";
+  $query_update = "UPDATE `mesas` SET `user` = '$_SESSION[name]', `domain` = '$domain[1]' WHERE `mesas`.`position` = '$dados[day4]' AND `mesas`.`day` = '4'";
   $dbconn->query($query_update);
 }
 if(!empty($dados['day5'])) {
-  $query_update = "UPDATE `mesas` SET `user` = '$user[1]', `domain` = '$domain[1]' WHERE `mesas`.`position` = '$dados[day5]' AND `mesas`.`day` = '5'";
+  $query_update = "UPDATE `mesas` SET `user` = '$_SESSION[name]', `domain` = '$domain[1]' WHERE `mesas`.`position` = '$dados[day5]' AND `mesas`.`day` = '5'";
   $dbconn->query($query_update);
 }}
 

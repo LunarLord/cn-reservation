@@ -3,10 +3,8 @@
         
     </head>
         <body>
-        <?php ?>
     <div class="col-md-4">
         <div class="panel panel-default">
-            
     <table class="table-condensed">
         <tr data-bs-toggle="collapse" data-bs-target="#segundafeira" class="accordion-toggle">
             <td><button type="button" name="segundafeira" value="1" class="btn btn-dark mesmo-tamanho">Segunda - Feira</button></td>
@@ -680,7 +678,7 @@
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-          <button type="submit" class="btn btn-primary">Confirmar</button>
+          <button type="submit" class="btn btn-primary" action="index.php">Confirmar</button>
         </div>
         </form>
       </div>

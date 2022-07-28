@@ -1,4 +1,11 @@
-<?php exec('wmic COMPUTERSYSTEM Get UserName', $user);?>
+<?php session_start();
+if((!isset ($_SESSION['name']) == true) and (!isset ($_SESSION['password']) == true))
+{
+  header('location: login.php');
+  }
+
+$logado = $_SESSION['name'];
+ ?>
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -14,7 +21,7 @@
 <body>
  < <nav class="navbar bg-light fixed-top border">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="index.php">
         <img src="assets/img/logotipo.png" alt="" width="239" height="37" class="d-inline-block align-text-top">
       </a>
       <nav class="navbar navbar-expand-lg bg-light">
@@ -22,17 +29,21 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="#"><?php print_r($user[1]) ?></a>
+                <a class="nav-link"><b> <?php print_r($_SESSION['name']) ?></b></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Início</a>
+                <a class="nav-link" href="index.php">Início</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Quem Somos</a>
+                <a class="nav-link" href="https://www.centernorte.com.br/quem-somos/">Quem Somos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">SAC</a>
+                <a class="nav-link" href="https://www.centernorte.com.br/fale-conosco/">SAC</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="logout.php?token='.md5(session_id()).'">Sair</a>
+              </li>
+              
             </ul>
           </div>
         </div>
@@ -42,7 +53,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
-  <script src="script.js"></script>
   <div class="container-fluid">
     <h2>Reserve sua mesa</h2>
 
@@ -51,29 +61,12 @@
 <?php
 //session_start();
 include_once("config.php");
-include ("functions.php");
+include_once("functions.php");
 include("assets/html/htmlb.php");
 update_reservation();
 ?>
 
   <!-- Modal -->
-  <div class="modal fade" id="success" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Aviso:</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Mesa reservada com sucesso.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>
