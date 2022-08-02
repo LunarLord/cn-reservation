@@ -1,50 +1,9 @@
-.mesmo-tamanho {
-    width: 150px;
-    white-space: normal;
-}
-.chkbutton-size {
-    width: 45px;
-    white-space: normal;
+.body-1 {
+    background-color: #ececec;
 }
 
-body {
-    background-color: #F5F5F5;
-}
 
-h2 {
-    position: relative;
-    font-family: 'revicons';
-    top: 100px;
-}
-.tdb {
-    box-align: left;
-    white-space: normal;
-    width: 15%;
 
-}
-.panel{
-    position: relative;
-    top: 140px;
-}
 
-.form-submit{
-    position: relative;
-    top: 155px;
-    left: 12px;
-}
-.centraliza-container{
-    position: relative;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    margin: auto;
-    width: 400;
-    height: 530;
-}
-.container{
-    position: relative;
-    top: 100px;
-    width: 10px;
-}
-.disabled{
-    background-color: red;
-}
+
+
